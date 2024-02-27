@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import homeStyles from "@/styles/home.module.css";
+import homeStyles from "@/styles/Home.module.css";
 import { GetStaticProps } from "next";
 import { getSortedPostsData } from "../../posts/post";
 import Link from "next/link";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,7 +14,10 @@ type Props = {
 
 export default function Home({ allPostsData }: Props) {
   return (
-    <div>
+    <div className={homeStyles.container}>
+      <Head>
+        <title>OHDAL</title>
+      </Head>
       <section className={homeStyles.headingMd}>
         <p>[OHDAL Introduction]</p>
         <p>[This is a website]</p>

@@ -1,7 +1,7 @@
 import React from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { getAllPostIds, getPostData } from "../../../posts/post";
-import homeStyles from "@/styles/home.module.css";
+import postStyles from "@/styles/Post.module.css";
 import Head from "next/head";
 
 type Props = {
@@ -14,12 +14,12 @@ type Props = {
 
 export default function Post({ postData }: Props) {
   return (
-    <div>
+    <div className={postStyles.container}>
       <Head>
         <title>{postData.title}</title>
       </Head>
       <article>
-        <h1 className={homeStyles.headingXl}>{postData.title}</h1>
+        <h1 className={postStyles.headingXl}>{postData.title}</h1>
         <div>{postData.date}</div>
         <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }}></div>
       </article>
